@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "ThinkTwice",
+  "description": "a chrome extension for facebook that reminds you to post wholesome things",
+  "version": "1.0",
+
+  "permissions": [
+    "https://api.aylien.com/api/*",
+    "activeTab",
+		"storage",
+		"http://www.facebook.com/*",
+		"https://www.facebook.com/*",
+		"http://web.facebook.com/*",
+		"https://web.facebook.com/*"
+	],
+
+  "browser_action": {
+		"default_icon": "icon.png",
+    "default_popup": "popup.html"
+	},
+
+
+ "content_scripts": [
+		{
+			"matches": ["http://www.facebook.com/*", "https://www.facebook.com/*","http://web.facebook.com/*","https://web.facebook.com/*"],
+			"js": ["popup.js"],
+			"run_at": "document_start"
+		},
+		{
+			"matches": ["http://www.facebook.com/*", "https://www.facebook.com/*","http://web.facebook.com/*","https://web.facebook.com/*"],
+			"js": ["popup.js"],
+			"run_at": "document_idle"
+		}
+	]
+
+}
